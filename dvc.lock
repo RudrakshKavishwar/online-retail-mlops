@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python train_and_export.py --model-dir exported_model
+    deps:
+    - path: data/online_retail_II.xlsx
+      hash: md5
+      md5: ed54ccfc5d358481c399cc11d0a244be
+      size: 45622278
+    - path: requirements.txt
+      hash: md5
+      md5: d555cebe4fcb7049e4d3f79e8daf98c4
+      size: 79
+    - path: train_and_export.py
+      hash: md5
+      md5: 1dc96c3a47daab832820318058d22bf8
+      size: 9078
+    outs:
+    - path: exported_model/rf_churn_pipe.joblib
+      hash: md5
+      md5: 2fe6878d9aee3ebb24318b34fa1ff56f
+      size: 17841227
