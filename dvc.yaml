@@ -1,0 +1,9 @@
+stages:
+  train:
+    cmd: python train_and_export.py --model-dir exported_model
+    deps:
+      - train_and_export.py
+      - requirements.txt
+      - data/online_retail_II.xlsx
+    outs:
+      - exported_model/rf_churn_pipe.joblib

@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/rudra/Downloads/online-retail-mlops/mlruns/413489972697951830/models/m-64b4b0d5db7d49c3b7b2e97ee51bfd40/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.1
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.5.1
+model_id: m-64b4b0d5db7d49c3b7b2e97ee51bfd40
+model_size_bytes: 17827261
+model_uuid: m-64b4b0d5db7d49c3b7b2e97ee51bfd40
+prompts: null
+run_id: c1224a75c51d41f3a0732442dce02838
+utc_time_created: '2025-11-04 13:35:51.199078'

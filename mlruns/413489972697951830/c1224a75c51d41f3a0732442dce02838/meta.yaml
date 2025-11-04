@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/rudra/Downloads/online-retail-mlops/mlruns/413489972697951830/c1224a75c51d41f3a0732442dce02838/artifacts
+end_time: 1762263357143
+entry_point_name: ''
+experiment_id: '413489972697951830'
+lifecycle_stage: active
+run_id: c1224a75c51d41f3a0732442dce02838
+run_name: run
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1762263351042
+status: 3
+tags: []
+user_id: rudra

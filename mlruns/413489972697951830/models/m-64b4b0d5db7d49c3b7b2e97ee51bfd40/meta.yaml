@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/rudra/Downloads/online-retail-mlops/mlruns/413489972697951830/models/m-64b4b0d5db7d49c3b7b2e97ee51bfd40/artifacts
+creation_timestamp: 1762263351152
+experiment_id: '413489972697951830'
+last_updated_timestamp: 1762263357127
+model_id: m-64b4b0d5db7d49c3b7b2e97ee51bfd40
+model_type: null
+name: model
+source_run_id: c1224a75c51d41f3a0732442dce02838
+status: 2
+status_message: null

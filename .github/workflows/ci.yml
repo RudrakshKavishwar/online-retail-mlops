@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install system deps
+        run: sudo apt-get update && sudo apt-get install -y liblzma-dev
+
+      - name: Install pip deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install dvc[s3] || true
+
+      - name: DVC pull (if remote configured)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          set -e
+          dvc pull || echo "No DVC remote or no access; continuing"
+
+      - name: Run unit tests
+        run: |
+          pytest -q
+
+      - name: Smoke train (fast)
+        # uses the --sample flag to avoid long runs on CI
+        run: |
+          python train_and_export.py --sample 0.02 --model-dir exported_model_ci
+
+      - name: Check model produced
+        run: |
+          if [ -f exported_model_ci/rf_churn_pipe.joblib ]; then echo "Model produced"; else echo "Model missing" && exit 1; fi
