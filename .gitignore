@@ -1,0 +1,9 @@
+﻿__pycache__/
+.venv/
+.env
+mlruns/
+exported_model_ci/
+exported_model_test/
+*.pyc
+.DS_Store
+data/
